@@ -12,8 +12,10 @@ public class OrderServiceImpl implements OrderService{
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
-    @Autowired
+    @Autowired //생성자가 단 하나만 존재할 경우 생략이 가능하다(스프링 컨테이너에 등록되었을 경우에 한함)
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        System.out.println("memberRepository" + memberRepository);
+        System.out.println("discountPolicy" + discountPolicy);
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
