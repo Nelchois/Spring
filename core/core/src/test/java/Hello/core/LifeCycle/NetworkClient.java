@@ -1,13 +1,13 @@
 package Hello.core.LifeCycle;
 
+
+
 public class NetworkClient {
 
     private String url;
 
     public NetworkClient() {
         System.out.println("생성자 호출, url = " + url);
-        connet();
-        call("초기화 연결 메시지");
     }
 
     public void setUrl(String url) {
@@ -26,5 +26,18 @@ public class NetworkClient {
     //서비스 종료시 호출
     public void disconnect() {
         System.out.println("close: " + url);
+    }
+
+
+    public void init() {
+        System.out.println("NetworkClient.init");
+        connet();
+        call("초기화 연결 메시지");
+    }
+
+
+    public void close() {
+        System.out.println("NetworkClient.close");
+        disconnect();
     }
 }
